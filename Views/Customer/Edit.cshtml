@@ -1,0 +1,124 @@
+@model AcxiomCRM.Models.Customer
+
+@{
+    ViewData["Title"] = "Edit Customer";
+}
+
+<div class="container mt-4">
+
+    <h1>Edit Customer</h1>
+
+    <div class="card shadow-sm mt-3">
+
+        <div class="card-body">
+
+            <form asp-action="Edit" method="post">
+
+                @Html.AntiForgeryToken()
+
+                <input type="hidden"
+                       asp-for="Id" />
+
+                <input type="hidden"
+                       asp-for="CreatedAt" />
+
+                <input type="hidden"
+                       asp-for="IsActive" />
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger mb-3">
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Name"
+                           class="form-label"></label>
+
+                    <input asp-for="Name"
+                           class="form-control" />
+
+                    <span asp-validation-for="Name"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email"
+                           class="form-label"></label>
+
+                    <input asp-for="Email"
+                           class="form-control" />
+
+                    <span asp-validation-for="Email"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Phone"
+                           class="form-label"></label>
+
+                    <input asp-for="Phone"
+                           class="form-control" />
+
+                    <span asp-validation-for="Phone"
+                          class="text-danger">
+                    </span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Company"
+                           class="form-label"></label>
+
+                    <input asp-for="Company"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Address"
+                           class="form-label"></label>
+
+                    <textarea asp-for="Address"
+                              class="form-control">
+                    </textarea>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="City"
+                           class="form-label"></label>
+
+                    <input asp-for="City"
+                           class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Country"
+                           class="form-label"></label>
+
+                    <input asp-for="Country"
+                           class="form-control" />
+                </div>
+
+                <button type="submit"
+                        class="btn btn-primary">
+                    Update Customer
+                </button>
+
+                <a asp-action="Index"
+                   class="btn btn-secondary">
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync(
+            "_ValidationScriptsPartial");
+    }
+}

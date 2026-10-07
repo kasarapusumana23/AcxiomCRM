@@ -1,0 +1,109 @@
+@{
+    ViewData["Title"] = "Register";
+}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+
+            <div class="card shadow">
+                
+                <div class="card-header bg-primary text-white text-center">
+                    <h3 class="mb-0">Create Account</h3>
+                </div>
+
+                <div class="card-body p-4">
+
+                    @if (ViewBag.Error != null)
+                    {
+                        <div class="alert alert-danger" role="alert">
+                            @ViewBag.Error
+                        </div>
+                    }
+
+                    <form asp-controller="Account"
+                          asp-action="Register"
+                          method="post">
+
+                        @Html.AntiForgeryToken()
+
+                        <!-- Full Name -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label">
+                                Full Name
+                            </label>
+
+                            <input type="text"
+                                   id="fullName"
+                                   name="fullName"
+                                   class="form-control"
+                                   placeholder="Enter your full name"
+                                   maxlength="100"
+                                   required />
+
+                            <div class="form-text">
+                                Enter your full name.
+                            </div>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label">
+                                Email Address
+                            </label>
+
+                            <input type="email"
+                                   id="email"
+                                   name="email"
+                                   class="form-control"
+                                   placeholder="Enter your email"
+                                   required />
+
+                            <div class="form-text">
+                                Example: user@example.com
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label">
+                                Password
+                            </label>
+
+                            <input type="password"
+                                   id="password"
+                                   name="password"
+                                   class="form-control"
+                                   placeholder="Enter your password"
+                                   minlength="8"
+                                   required />
+
+                            <div class="form-text">
+                                Minimum 8 characters.
+                            </div>
+                        </div>
+
+                        <!-- Register Button -->
+                        <div class="d-grid">
+                            <button type="submit"
+                                    class="btn btn-primary">
+                                Register
+                            </button>
+                        </div>
+
+                    </form>
+
+                    <!-- Login Link -->
+                    <div class="text-center mt-4">
+                        <span>Already have an account?</span>
+                        <a href="/Account/Login">
+                            Login here
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

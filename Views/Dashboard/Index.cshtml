@@ -1,0 +1,77 @@
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="container mt-4">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <h1>AcxiomCRM Dashboard</h1>
+            <p class="text-muted">
+                Welcome, @User.Identity?.Name
+            </p>
+        </div>
+
+        <form asp-controller="Account"
+              asp-action="Logout"
+              method="post">
+
+            @Html.AntiForgeryToken()
+
+            <button type="submit" class="btn btn-danger">
+                Logout
+            </button>
+
+        </form>
+    </div>
+
+    <div class="row g-3">
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Total Customers</h6>
+                    <h2>0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Total Leads</h6>
+                    <h2>0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Open Opportunities</h6>
+                    <h2>0</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h6>Pipeline Value</h6>
+                    <h2>₹0</h2>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="card shadow-sm mt-4">
+        <div class="card-body">
+            <h4>Sales Pipeline</h4>
+            <p class="text-muted">
+                CRM analytics will appear here.
+            </p>
+        </div>
+    </div>
+
+</div>

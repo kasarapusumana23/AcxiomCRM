@@ -35,6 +35,11 @@ var app = builder.Build();
 // Create required CRM roles
 using (var scope = app.Services.CreateScope())
 {
+    var db = scope.ServiceProvider
+        .GetRequiredService<ApplicationDbContext>();
+
+    await db.Database.MigrateAsync();
+
     var roleManager = scope.ServiceProvider
         .GetRequiredService<RoleManager<IdentityRole>>();
 

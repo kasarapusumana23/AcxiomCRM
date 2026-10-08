@@ -5,6 +5,9 @@ COPY . .
 RUN dotnet restore
 RUN dotnet publish AcxiomCRM.csproj -c Release -o /app/publish
 
+# Make sure static files are included
+COPY wwwroot /app/publish/wwwroot
+
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS final
 WORKDIR /app
 
